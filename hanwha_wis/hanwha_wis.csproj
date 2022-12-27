@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8BCAFDEB-EF66-4BE6-98A1-253BC53B22C2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>hanwha_wis</RootNamespace>
+    <AssemblyName>hanwha_wis</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeX">
+      <HintPath>lib\BarcodeX.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win, Version=14.45.20201.0, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\FarPoint Technologies\Spread.WinForms.4.dotNet35\v4.0.3526\Bin\FarPoint.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Win.Spread, Version=14.45.20201.0, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\FarPoint Technologies\Spread.WinForms.4.dotNet35\v4.0.3526\Bin\FarPoint.Win.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cls_color.cs" />
+    <Compile Include="cls_com.cs" />
+    <Compile Include="frm기초데이타_공통코드등록.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm기초데이타_공통코드등록.designer.cs">
+      <DependentUpon>frm기초데이타_공통코드등록.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm기타_작업지시서조회.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm기타_작업지시서조회.designer.cs">
+      <DependentUpon>frm기타_작업지시서조회.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm기타_자재조회.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm기타_자재조회.designer.cs">
+      <DependentUpon>frm기타_자재조회.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm기초데이타_제품등록.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm기초데이타_제품등록.designer.cs">
+      <DependentUpon>frm기초데이타_제품등록.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm기초데이타_로그조회.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm기초데이타_로그조회.designer.cs">
+      <DependentUpon>frm기초데이타_로그조회.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm자재입출고관리_투입예정원료예약.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm자재입출고관리_투입예정원료예약.designer.cs">
+      <DependentUpon>frm자재입출고관리_투입예정원료예약.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm작업관리_계량.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm작업관리_계량.designer.cs">
+      <DependentUpon>frm작업관리_계량.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm작업관리_작업지시서.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm작업관리_작업지시서.designer.cs">
+      <DependentUpon>frm작업관리_작업지시서.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm자재입출고관리_출고조회.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm자재입출고관리_출고조회.designer.cs">
+      <DependentUpon>frm자재입출고관리_출고조회.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm자재입출고관리_출고등록.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm자재입출고관리_출고등록.designer.cs">
+      <DependentUpon>frm자재입출고관리_출고등록.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm자재입출고관리_재고조회.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm자재입출고관리_재고조회.designer.cs">
+      <DependentUpon>frm자재입출고관리_재고조회.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm자재입출고관리_입고조회.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm자재입출고관리_입고조회.designer.cs">
+      <DependentUpon>frm자재입출고관리_입고조회.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm기타_엑셀등록_자재.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm기타_엑셀등록_자재.designer.cs">
+      <DependentUpon>frm기타_엑셀등록_자재.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm자재입출고관리_입고등록.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm자재입출고관리_입고등록.designer.cs">
+      <DependentUpon>frm자재입출고관리_입고등록.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm기초데이타_자재등록.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm기초데이타_자재등록.designer.cs">
+      <DependentUpon>frm기초데이타_자재등록.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm기초데이타_사용자등록.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm기초데이타_사용자등록.designer.cs">
+      <DependentUpon>frm기초데이타_사용자등록.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm기초데이타_공장부서창고등록.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm기초데이타_공장부서창고등록.designer.cs">
+      <DependentUpon>frm기초데이타_공장부서창고등록.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm메인.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm메인.Designer.cs">
+      <DependentUpon>frm메인.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm파일_설정.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm파일_설정.designer.cs">
+      <DependentUpon>frm파일_설정.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm기초데이타_공통코드등록.resx">
+      <DependentUpon>frm기초데이타_공통코드등록.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm기타_작업지시서조회.resx">
+      <DependentUpon>frm기타_작업지시서조회.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm기타_자재조회.resx">
+      <DependentUpon>frm기타_자재조회.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm기초데이타_제품등록.resx">
+      <DependentUpon>frm기초데이타_제품등록.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm기초데이타_로그조회.resx">
+      <DependentUpon>frm기초데이타_로그조회.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm자재입출고관리_투입예정원료예약.resx">
+      <DependentUpon>frm자재입출고관리_투입예정원료예약.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm작업관리_계량.resx">
+      <DependentUpon>frm작업관리_계량.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm작업관리_작업지시서.resx">
+      <DependentUpon>frm작업관리_작업지시서.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm자재입출고관리_출고조회.resx">
+      <DependentUpon>frm자재입출고관리_출고조회.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm자재입출고관리_출고등록.resx">
+      <DependentUpon>frm자재입출고관리_출고등록.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm자재입출고관리_재고조회.resx">
+      <DependentUpon>frm자재입출고관리_재고조회.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm자재입출고관리_입고조회.resx">
+      <DependentUpon>frm자재입출고관리_입고조회.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm기타_엑셀등록_자재.resx">
+      <DependentUpon>frm기타_엑셀등록_자재.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm자재입출고관리_입고등록.resx">
+      <DependentUpon>frm자재입출고관리_입고등록.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm기초데이타_자재등록.resx">
+      <DependentUpon>frm기초데이타_자재등록.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm기초데이타_사용자등록.resx">
+      <DependentUpon>frm기초데이타_사용자등록.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm기초데이타_공장부서창고등록.resx">
+      <DependentUpon>frm기초데이타_공장부서창고등록.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm메인.resx">
+      <DependentUpon>frm메인.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm파일_설정.resx">
+      <DependentUpon>frm파일_설정.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\fail.WAV" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\fail2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\ok.WAV" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\ok2.wav" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

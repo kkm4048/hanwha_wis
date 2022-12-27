@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1259
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hanwha_wis", "hanwha_wis\hanwha_wis.csproj", "{8BCAFDEB-EF66-4BE6-98A1-253BC53B22C2}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup_hanwha_wis", "Setup_hanwha_wis\Setup_hanwha_wis.vdproj", "{04E20957-F91C-4C0C-8491-29776E3AFD56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BCAFDEB-EF66-4BE6-98A1-253BC53B22C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BCAFDEB-EF66-4BE6-98A1-253BC53B22C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BCAFDEB-EF66-4BE6-98A1-253BC53B22C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BCAFDEB-EF66-4BE6-98A1-253BC53B22C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04E20957-F91C-4C0C-8491-29776E3AFD56}.Debug|Any CPU.ActiveCfg = Debug
+		{04E20957-F91C-4C0C-8491-29776E3AFD56}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {516B2E94-4FCD-4AD9-9328-EA5C437D6DF5}
+	EndGlobalSection
+EndGlobal
