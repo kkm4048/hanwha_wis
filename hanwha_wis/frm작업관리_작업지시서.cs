@@ -453,7 +453,7 @@ namespace hanwha_wis
                     pi.ShowPrintDialog = true;
 
                     pi.Margin.Top = 30;
-                    pi.Margin.Header = 60;
+                    pi.Margin.Header = 65;
                     pi.Margin.Bottom = 0;
                     pi.Margin.Left = 0;
                     pi.Margin.Right = 0;

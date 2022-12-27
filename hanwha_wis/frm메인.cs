@@ -109,8 +109,6 @@ namespace hanwha_wis
             catch
             {
             }
-
-
         }
 
         private void m기초데이타_공장부서창고등록_Click(object sender, EventArgs e)
@@ -133,6 +131,7 @@ namespace hanwha_wis
         {
             String d;
             d = cls_com.ConfigLoad("설정", "공장", "대전사업장").Trim() ;
+
 
             cls_com.g공장 = d;
 
