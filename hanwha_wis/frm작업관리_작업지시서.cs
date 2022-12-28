@@ -386,8 +386,8 @@ namespace hanwha_wis
             {
                 spr.ActiveSheet.Cells.Get(0, 3, spr.ActiveSheet.RowCount - 5, 5).Locked = false;
                 spr.ActiveSheet.Cells.Get(0, 3, spr.ActiveSheet.RowCount - 5, 5).BackColor = cls_color.gColor_수정;
-                spr.ActiveSheet.Cells.Get(0, 9, spr.ActiveSheet.RowCount - 5, 9).Locked = false;
-                spr.ActiveSheet.Cells.Get(0, 9, spr.ActiveSheet.RowCount - 5, 9).BackColor = cls_color.gColor_수정;
+                spr.ActiveSheet.Cells.Get(0, 8, spr.ActiveSheet.RowCount - 5, 9).Locked = false;
+                spr.ActiveSheet.Cells.Get(0, 8, spr.ActiveSheet.RowCount - 5, 9).BackColor = cls_color.gColor_수정;
 
             }
             catch
@@ -451,7 +451,6 @@ namespace hanwha_wis
                     FarPoint.Win.Spread.PrintInfo pi = new FarPoint.Win.Spread.PrintInfo();
                     FarPoint.Win.Spread.SmartPrintRulesCollection prules = new FarPoint.Win.Spread.SmartPrintRulesCollection();
                     pi.ShowPrintDialog = true;
-
                     pi.Margin.Top = 30;
                     pi.Margin.Header = 65;
                     pi.Margin.Bottom = 0;
@@ -464,7 +463,6 @@ namespace hanwha_wis
                     //  pi.Header = pi.Header + "  /n/fz\"8\"/l" + "BT NO : " + txt사업명.Text + "/f/fn\"궁서체\"/fz\"8\"/r " + " 배치무게:";
                     //                   pi.Header = pi.Header + "/n/fz\"10\"/l" + "작업지시번호 : " + txt작업지시번호.Text  + "   발행일자 : "  + cls_com.GetDate(DateTime.Now) +  "/n/n/n";
                     //'                   pi.Header = pi.Header + "/n/n/l" + "BT No : "  + txtBtno.Text + "/c" + "배치무게 : " +  r배치무게  + "            혼화일 : "  +txt혼화일.Text + "" + "/r" + "작성자 : " + r작성자 ;
-
                     pi.ShowColor = true;
                     pi.Footer = "";
                     pi.ShowGrid = true;//셀
@@ -524,7 +522,7 @@ namespace hanwha_wis
             
             for (int i = 0; i < spr.ActiveSheet.RowCount-4; i++ )
             {
-                DataSet ds = cls_com.Select_Query(" SELECT DBO.F_재고량('" + cls_com.g공장 + "','" + cmb창고.Text + "','" + spr.ActiveSheet.Cells[i, 1].Text + "' )   재고량" ) ;
+                DataSet ds = cls_com.Select_Query(" SELECT DBO.F_재고량2('" + cls_com.g공장 + "','" + cmb창고.Text + "','" + spr.ActiveSheet.Cells[i, 1].Text + "','" + spr.ActiveSheet.Cells[i, 3].Text + "'  )   재고량") ;
                 spr.ActiveSheet.Cells[i, 8].Text = ds.Tables[0].Rows[0]["재고량"].ToString();
             }
         }
@@ -549,11 +547,11 @@ namespace hanwha_wis
 
             // e.Graphics.DrawString("작업 지시서", new Font("굴림체",12,FontStyle.Bold) , blueBrush2, 200, 105);
             e.Graphics.DrawString("사 업 명  : " + txt사업명.Text , new Font("굴림체",16,FontStyle.Bold) , blueBrush2, 10, 80);
-            e.Graphics.DrawString("작업지시번호 : " + txt작업지시번호.Text, new Font("굴림체", 12, FontStyle.Regular), blueBrush2, 11, 110);
-            e.Graphics.DrawString("배치번호 : " +  txtBtno.Text , new Font("굴림체", 10, FontStyle.Regular), blueBrush2, 13, 130);
-            e.Graphics.DrawString("배치무게 : " + r배치무게 , new Font("굴림체", 10, FontStyle.Regular), blueBrush2, 230, 130);
-            e.Graphics.DrawString("혼화일 : " + txt혼화일.Text , new Font("굴림체", 10, FontStyle.Regular), blueBrush2, 430, 130);
-            e.Graphics.DrawString("작성자 : " + r작성자, new Font("굴림체", 10, FontStyle.Regular), blueBrush2, 660, 130);
+            e.Graphics.DrawString("작업지시번호 : " + txt작업지시번호.Text, new Font("굴림체", 10, FontStyle.Regular), blueBrush2, 11, 110);
+            e.Graphics.DrawString("배치번호 : " +  txtBtno.Text , new Font("굴림체", 12, FontStyle.Bold), blueBrush2, 13, 130);
+            e.Graphics.DrawString("배치무게 : " + r배치무게 , new Font("굴림체", 12, FontStyle.Bold), blueBrush2, 230, 130);
+            e.Graphics.DrawString("혼화일 : " + txt혼화일.Text , new Font("굴림체", 12, FontStyle.Bold), blueBrush2, 430, 130);
+            e.Graphics.DrawString("작성자 : " + r작성자, new Font("굴림체", 12, FontStyle.Bold), blueBrush2, 660, 130);
 
             // e.Graphics.DrawString("작업 지시서", new Font("굴림체",12,FontStyle.Bold) , blueBrush2, 200, 105);
         }

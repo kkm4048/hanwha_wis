@@ -344,18 +344,21 @@ namespace hanwha_wis
          {
             int i;
             if (spr.ActiveSheet.Rows.Count <= 0) return;
-            float 계획량합 = 0, 혼합비합 = 0,계량합=0;
+            float 계획량합 = 0, 계량합=0;
             
             for (i = 0; i < spr.ActiveSheet.RowCount - 4; i++)
             {
-                계획량합 = 계획량합 + cls_com.Val_f(spr.ActiveSheet.Cells[i, 3].Text); ;
-                혼합비합 = 혼합비합 + cls_com.Val_f(spr.ActiveSheet.Cells[i, 4].Text);
                 계량합 = 계량합 + cls_com.Val_f(spr.ActiveSheet.Cells[i, 10].Text); ;
 
             }
 
-            spr.ActiveSheet.Cells[i, 3].Text = 계획량합.ToString();
-            spr.ActiveSheet.Cells[i, 4].Text = 혼합비합.ToString();
+
+            sql = "select sum(계획량) 계획량, sum(혼합비) 혼합비 from a301_작업지시서_계획 where 작업지시번호 = '" + txt작업지시번호.Text + "' ";
+            DataSet ds = cls_com.Select_Query(sql);
+
+            spr.ActiveSheet.Cells[i, 3].Text =  ds.Tables[0].Rows[0]["계획량"].ToString();
+            spr.ActiveSheet.Cells[i, 4].Text = ds.Tables[0].Rows[0]["혼합비"].ToString();
+
             spr.ActiveSheet.Cells[i, 11].Text = 계량합.ToString();
 
             r배치무게 = 계획량합.ToString() + " kg";
@@ -712,11 +715,11 @@ namespace hanwha_wis
 
             // e.Graphics.DrawString("작업 지시서", new Font("굴림체",12,FontStyle.Bold) , blueBrush2, 200, 105);
             e.Graphics.DrawString("사 업 명 : " + txt사업명.Text, new Font("굴림체", 16, FontStyle.Bold), blueBrush2, 10, 80);
-            e.Graphics.DrawString("작업지시번호 : " + txt작업지시번호.Text, new Font("굴림체", 12, FontStyle.Regular), blueBrush2, 11, 110);
-            e.Graphics.DrawString("배치번호 : " + txtBTNo.Text, new Font("굴림체", 10, FontStyle.Regular), blueBrush2, 13, 130);
-            e.Graphics.DrawString("배치무게 : " + r배치무게, new Font("굴림체", 10, FontStyle.Regular), blueBrush2, 230, 130);
-            e.Graphics.DrawString("혼화일 : " + txt혼화일.Text, new Font("굴림체", 10, FontStyle.Regular), blueBrush2, 430, 130);
-            e.Graphics.DrawString("작성자 : " + r작성자, new Font("굴림체", 10, FontStyle.Regular), blueBrush2, 660, 130);
+            e.Graphics.DrawString("작업지시번호 : " + txt작업지시번호.Text, new Font("굴림체", 10, FontStyle.Regular), blueBrush2, 11, 110);
+            e.Graphics.DrawString("배치번호 : " + txtBTNo.Text, new Font("굴림체", 12, FontStyle.Bold), blueBrush2, 13, 130);
+            e.Graphics.DrawString("배치무게 : " + r배치무게, new Font("굴림체", 12, FontStyle.Bold), blueBrush2, 230, 130);
+            e.Graphics.DrawString("혼화일 : " + txt혼화일.Text, new Font("굴림체", 12, FontStyle.Bold), blueBrush2, 430, 130);
+            e.Graphics.DrawString("작성자 : " + r작성자, new Font("굴림체", 12, FontStyle.Bold), blueBrush2, 660, 130);
 
         }
 

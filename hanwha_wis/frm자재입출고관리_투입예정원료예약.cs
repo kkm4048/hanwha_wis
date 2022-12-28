@@ -82,6 +82,7 @@ namespace hanwha_wis
             Cursor.Current = Cursors.WaitCursor;
             lblCnt.Text = ds.Tables[0].Rows.Count.ToString();
             spr.DataSource = ds;
+            spr.ActiveSheet.ColumnHeader.Rows[0].Height = 40;
             if (ds.Tables[0].Rows.Count > 0)
             {
                 FarPoint.Win.Spread.CellType.NumberCellType nc = new FarPoint.Win.Spread.CellType.NumberCellType();
@@ -91,19 +92,21 @@ namespace hanwha_wis
                 spr.Sheets[0].Cells.Get(0, 0, spr.Sheets[0].RowCount - 1, spr.Sheets[0].ColumnCount - 1).Locked = true;
                 spr.Sheets[0].Cells.Get(0, 0, spr.Sheets[0].RowCount - 1, spr.Sheets[0].ColumnCount - 1).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
                 spr.Sheets[0].Cells.Get(0, 0, spr.Sheets[0].RowCount - 1, spr.Sheets[0].ColumnCount - 1).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
-                spr.Sheets[0].Cells.Get(0, 10, spr.Sheets[0].RowCount - 1, 11).CellType = nc;
+                spr.Sheets[0].Cells.Get(0, 12, spr.Sheets[0].RowCount - 1, 12).CellType = nc;
+                spr.Sheets[0].Cells.Get(0, 12, spr.Sheets[0].RowCount - 1, 12).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Right;
 
             }
             Cursor.Current = Cursors.Default;
             cls_com.SpreadLoad(this, spr.Sheets[0]);
             lblCnt.Text = spr.ActiveSheet.RowCount.ToString();
+            cls_com.Sort표시(spr.ActiveSheet);
         }
         private void 조회2()
         {
             //SPEC
 
 
-            sql = " exec s_a201_자재_예약_조회 '1','" + cls_com.g공장 + "','" + cmb창고0.Text +"','" + cls_com.GetDate(dtp.Value) + "','" + cls_com.GetDate(dtp.Value) + "','','','','' ";
+            sql = " exec s_a201_자재_예약_조회 '1','" + cls_com.g공장 + "','" + cmb창고0.Text +"','" + cls_com.GetDate(dtp.Value) + "','" + cls_com.GetDate(dtp.Value) + "','','','','" +  txt조회2.Text + "' ";
             DataSet ds = cls_com.Select_Query(sql);
             spr2.Sheets[0].RowCount = 0;
 
@@ -111,16 +114,23 @@ namespace hanwha_wis
             Cursor.Current = Cursors.WaitCursor;
             lblCnt2.Text = ds.Tables[0].Rows.Count.ToString();
             spr2.DataSource = ds;
+            spr2.ActiveSheet.ColumnHeader.Rows[0].Height = 40;
             if (ds.Tables[0].Rows.Count > 0)
             {
 
+                FarPoint.Win.Spread.CellType.NumberCellType nc = new FarPoint.Win.Spread.CellType.NumberCellType();
+                nc.DecimalPlaces = 3;
+                nc.ShowSeparator = true;
                 spr2.Sheets[0].Cells.Get(0, 0, spr2.Sheets[0].RowCount - 1, spr2.Sheets[0].ColumnCount - 1).Locked = true;
                 spr2.Sheets[0].Cells.Get(0, 0, spr2.Sheets[0].RowCount - 1, spr2.Sheets[0].ColumnCount - 1).VerticalAlignment = FarPoint.Win.Spread.CellVerticalAlignment.Center;
                 spr2.Sheets[0].Cells.Get(0, 0, spr2.Sheets[0].RowCount - 1, spr2.Sheets[0].ColumnCount - 1).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Left;
+                spr2.Sheets[0].Cells.Get(0, 10, spr2.Sheets[0].RowCount - 1, 12).CellType = nc;
+                spr2.Sheets[0].Cells.Get(0, 10, spr2.Sheets[0].RowCount - 1, 12).HorizontalAlignment = FarPoint.Win.Spread.CellHorizontalAlignment.Right;
             }
             Cursor.Current = Cursors.Default;
             cls_com.SpreadLoad(this, spr2.Sheets[0]);
             lblCnt2.Text = spr2.ActiveSheet.RowCount.ToString();
+            cls_com.Sort표시(spr2.ActiveSheet);
         }
         private void spr_ColumnWidthChanged(object sender, FarPoint.Win.Spread.ColumnWidthChangedEventArgs e)
         {
@@ -243,14 +253,14 @@ namespace hanwha_wis
             if (e.Row < 0) return;
             txt창고.Text = spr.ActiveSheet.Cells[e.Row, 1].Text;
 
-            txt1.Text = spr.ActiveSheet.Cells[e.Row, 2].Text;
-            txt2.Text = spr.ActiveSheet.Cells[e.Row, 3].Text;
-            txt로트번호.Text = spr.ActiveSheet.Cells[e.Row, 6].Text;
-            txt3.Text = spr.ActiveSheet.Cells[e.Row, 7].Text;
-            txt4.Text = spr.ActiveSheet.Cells[e.Row, 8].Text;
-            txt5.Text = spr.ActiveSheet.Cells[e.Row, 9].Text;
+            txt1.Text = spr.ActiveSheet.Cells[e.Row, 3].Text;
+            txt2.Text = spr.ActiveSheet.Cells[e.Row, 4].Text;
+            txt로트번호.Text = spr.ActiveSheet.Cells[e.Row, 7].Text;
+            txt3.Text = spr.ActiveSheet.Cells[e.Row, 8].Text;
+            txt4.Text = spr.ActiveSheet.Cells[e.Row, 9].Text;
+            txt5.Text = spr.ActiveSheet.Cells[e.Row, 10].Text;
 
-            txt재고량.Text = spr.ActiveSheet.Cells[e.Row, 10].Text;
+            txt재고량.Text = spr.ActiveSheet.Cells[e.Row, 12].Text;
 
             txt투입예정무게.Text = "";
             txt투입후잔여량.Text = "";
@@ -332,9 +342,29 @@ namespace hanwha_wis
             txt투입예정무게.Text = spr2.ActiveSheet.Cells[e.Row, 11].Text;
             txt투입후잔여량.Text = spr2.ActiveSheet.Cells[e.Row, 12].Text;
 
+            조회_재고로트(txt로트번호.Text);
 
         }
+        private void 조회_재고로트(string 로트번호)
+        {
+            //SPEC
 
+
+            sql = " exec s_a201_자재_재고_로트번호_조회 '1','" + 로트번호 + "' ";
+            DataSet ds = cls_com.Select_Query(sql);
+
+            if (ds == null) return;
+            Cursor.Current = Cursors.WaitCursor;
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+
+                txt1.Text = ds.Tables[0].Rows[0]["자재코드"].ToString();
+                txt2.Text = ds.Tables[0].Rows[0]["자재명"].ToString();
+                txt3.Text = ds.Tables[0].Rows[0]["제조사로트"].ToString();
+                txt4.Text = ds.Tables[0].Rows[0]["INDEX"].ToString();
+                txt5.Text = ds.Tables[0].Rows[0]["용도"].ToString();
+            }
+        }
         private void sc_SplitterMoved(object sender, SplitterEventArgs e)
         {
             cls_com.ConfigSave(this.Name + "_sc넓이", sc.SplitterDistance.ToString());
@@ -519,6 +549,11 @@ namespace hanwha_wis
         private void txt투입후잔여량_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt조회2_TextChanged(object sender, EventArgs e)
+        {
+            조회2();
         }
 
         private void 바코드출력()

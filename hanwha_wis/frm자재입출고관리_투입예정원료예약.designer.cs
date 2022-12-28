@@ -89,6 +89,8 @@
             this.spr2_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.sc = new System.Windows.Forms.SplitContainer();
             this.t포커스 = new System.Windows.Forms.Timer(this.components);
+            this.txt조회2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.spr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spr_Sheet1)).BeginInit();
             this.pan자재_데이타.SuspendLayout();
@@ -261,6 +263,7 @@
             this.pan등록.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pan등록.Controls.Add(this.lbl타이틀);
             this.pan등록.Controls.Add(this.btnClose);
+            this.pan등록.Controls.Add(this.btn바코드출력);
             this.pan등록.Dock = System.Windows.Forms.DockStyle.Top;
             this.pan등록.Location = new System.Drawing.Point(0, 0);
             this.pan등록.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -297,6 +300,8 @@
             // 
             this.pan입고.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pan입고.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pan입고.Controls.Add(this.txt조회2);
+            this.pan입고.Controls.Add(this.label4);
             this.pan입고.Controls.Add(this.txt목적);
             this.pan입고.Controls.Add(this.label9);
             this.pan입고.Controls.Add(this.txt재고량);
@@ -323,7 +328,6 @@
             this.pan입고.Controls.Add(this.label11);
             this.pan입고.Controls.Add(this.txt4);
             this.pan입고.Controls.Add(this.dtp);
-            this.pan입고.Controls.Add(this.btn바코드출력);
             this.pan입고.Controls.Add(this.btn초기화);
             this.pan입고.Controls.Add(this.label8);
             this.pan입고.Controls.Add(this.btn삭제);
@@ -622,7 +626,7 @@
             // 
             this.btn바코드출력.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn바코드출력.Image = ((System.Drawing.Image)(resources.GetObject("btn바코드출력.Image")));
-            this.btn바코드출력.Location = new System.Drawing.Point(461, 184);
+            this.btn바코드출력.Location = new System.Drawing.Point(966, 9);
             this.btn바코드출력.Name = "btn바코드출력";
             this.btn바코드출력.Size = new System.Drawing.Size(116, 36);
             this.btn바코드출력.TabIndex = 164;
@@ -827,6 +831,26 @@
             this.t포커스.Interval = 500;
             this.t포커스.Tick += new System.EventHandler(this.t포커스_Tick);
             // 
+            // txt조회2
+            // 
+            this.txt조회2.Location = new System.Drawing.Point(500, 194);
+            this.txt조회2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt조회2.MaxLength = 0;
+            this.txt조회2.Name = "txt조회2";
+            this.txt조회2.Size = new System.Drawing.Size(178, 21);
+            this.txt조회2.TabIndex = 199;
+            this.txt조회2.TextChanged += new System.EventHandler(this.txt조회2_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(465, 198);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.TabIndex = 200;
+            this.label4.Text = "조회";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // frm자재입출고관리_투입예정원료예약
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -917,5 +941,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmb자재;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt조회2;
+        private System.Windows.Forms.Label label4;
     }
 }
